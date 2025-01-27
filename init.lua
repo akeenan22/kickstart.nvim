@@ -162,6 +162,7 @@ vim.opt.scrolloff = 10
 -- MY OWN CUSTOM KEYMAPS
 
 vim.keymap.set('n', '<leader>j', ':e#<Enter>', { desc = 'Jumps to last buffer', silent = true })
+vim.wo.relativenumber = true
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
@@ -624,7 +625,6 @@ require('lazy').setup({
         -- gopls = {},
         pyright = {},
         rust_analyzer = {},
-        tsserver = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
