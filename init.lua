@@ -162,6 +162,7 @@ vim.opt.scrolloff = 10
 -- MY OWN CUSTOM KEYMAPS
 
 vim.keymap.set('n', '<leader>j', ':e#<Enter>', { desc = 'Jumps to last buffer', silent = true })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show error message' })
 vim.wo.relativenumber = true
 
 -- Clear highlights on search when pressing <Esc> in normal mode
