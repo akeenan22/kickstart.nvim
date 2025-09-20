@@ -163,6 +163,7 @@ vim.opt.scrolloff = 10
 
 vim.keymap.set('n', '<leader>j', ':e#<Enter>', { desc = 'Jumps to last buffer', silent = true })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show error message' })
+vim.keymap.set('n', '<leader>o', 'o<Esc>', { desc = 'Inserts new line', silent = true })
 vim.wo.relativenumber = true
 
 -- Clear highlights on search when pressing <Esc> in normal mode
@@ -625,6 +626,8 @@ require('lazy').setup({
         clangd = {},
         -- gopls = {},
         pyright = {},
+        black = {},
+        ocamllsp = { filetypes = { 'ml' } },
         rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -700,7 +703,7 @@ require('lazy').setup({
       },
     },
     opts = {
-      notify_on_error = false,
+      notify_on_error = true,
       format_on_save = function(bufnr)
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
@@ -719,6 +722,8 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        python = { 'black' },
+        ocaml = { 'ocamlfmt' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
